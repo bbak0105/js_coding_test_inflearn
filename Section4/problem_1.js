@@ -1,7 +1,4 @@
 /************ 내 풀이 ************/
-const n = 7;
-const arr = [128, 460, 603, 40, 521, 137, 123]
-
 function solution(n, arr) {
     let sumArr = [];
 
@@ -25,8 +22,25 @@ function solution(n, arr) {
     return max['origin']
 }
 
+const n = 7;
+const arr = [128, 460, 603, 40, 521, 137, 123]
 console.log(solution(n, arr));
 
-
 /************ 강사님 풀이 ************/
+function solution2(n, arr){
+    let answer, max=Number.MIN_SAFE_INTEGER;
+    for(let x of arr){
+        let sum=x.toString().split('').reduce((a, b)=>a+Number(b), 0);
+        if(sum>max){
+            max=sum;
+            answer=x;
+        }
+        else if(sum===max){
+            if(x>answer) answer=x;
+        }
+    }
+    return answer;
+}
 
+let arr2=[128, 460, 603, 40, 521, 137, 123];
+console.log(solution2(7, arr2));
